@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.davi.cursomc.domain.Produto;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<Produto, Integer >{
+public interface ProdutoRepository extends JpaRepository<Produto, Integer >{ // CLASSE DE ACESSO A DADOS
+																			 // ESSA CLASSE QUE VAI ALTERAR OS DADOS DO BANCO DE DADOS 
+
 
 }

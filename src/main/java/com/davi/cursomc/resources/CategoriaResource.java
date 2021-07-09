@@ -21,16 +21,10 @@ public class CategoriaResource {
 	private CategoriaService service;
 
 	@RequestMapping(value = "{id}",method = RequestMethod.GET )
-	public ResponseEntity<?> find(@PathVariable Integer id) {
+	public ResponseEntity<?> find(@PathVariable Integer id) { // O RESPONSEENTITY É UM TIPO ESPECIAL DO SPRING QUE ELE JÁ ARMAZENA VARIAS INFORMAÇÕES
+															  // DE UMA RESPOSTA HTTP PARA UM SERVIÇO REST
 		
 		Categoria obj = service.buscar(id);
-		
-		Categoria cat1 = new Categoria(1, "Informática");
-		Categoria cat2 = new Categoria(2,"Escritório");
-		
-		List<Categoria> lista = new ArrayList<>();
-		lista.add(cat1);
-		lista.add(cat2);
 		
 		return ResponseEntity.ok().body(obj) ;
 	}

@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Produto implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -22,11 +24,11 @@ public class Produto implements Serializable {
 	private Integer id;
 	private String nome;
 	private Double preco;
-	
+	@JsonBackReference // VAI OMITIR A LISTA DE CATEGORIAS PARA CADA PRODUTO
 	@ManyToMany
-	@JoinTable(name = "PRODUTO_CATEGORIA",
-	joinColumns = @JoinColumn(name = "produto_id"),
-	inverseJoinColumns = @JoinColumn(name = "categoria_id")
+	@JoinTable(name = "PRODUTO_CATEGORIA",          //AQUI É DADO O NOME DA TABELA GERADA PELO BANCO DE DADOS ASSOCIANDO AS DUAS TABELAS
+	joinColumns = @JoinColumn(name = "produto_id"), // AQUI É DADO O NOME DA COLUNA DA PROPRIA CLASSE OU SEJA OS PRODUTOS
+	inverseJoinColumns = @JoinColumn(name = "categoria_id") //AQUI É DADO O NOME DA OUTRA CLASSE Q ESTÁ ASSOCIADA A ESTA QUE NO CASO É CATEGORIA
 			)
 	private List<Categoria> categorias = new ArrayList<>();
 	
