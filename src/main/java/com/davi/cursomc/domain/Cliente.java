@@ -37,6 +37,8 @@ public class Cliente implements Serializable {
 	@CollectionTable(name = "TELEFONE")
 	private Set<String> tefefones = new HashSet<>(); // O TIPO SE É UM CONJUNTO E CONJUNTO NÃO ACEITA REPETIÇAO
 	
+	@OneToMany(mappedBy = "cliente")
+	private List<Pedido> pedidos = new ArrayList<>();
 	
 	public Cliente () {
 		
@@ -121,6 +123,16 @@ public class Cliente implements Serializable {
 	public void setTefefones(Set<String> tefefones) {
 		this.tefefones = tefefones;
 	}
+	
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 
 
 	@Override
@@ -139,8 +151,6 @@ public class Cliente implements Serializable {
 			return false;
 		Cliente other = (Cliente) obj;
 		return Objects.equals(id, other.id);
-	}
-	
-	
+	}	
 	
 }
