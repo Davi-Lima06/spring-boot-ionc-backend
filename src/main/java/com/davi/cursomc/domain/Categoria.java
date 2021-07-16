@@ -11,8 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 
 @Entity //SERVE PARA MAPEAMENTO NO BANCO DE DADOS
 public class Categoria implements Serializable{
@@ -22,7 +20,7 @@ public class Categoria implements Serializable{
 	private Integer id;
 	private String nome;
 	
-	@JsonManagedReference // FAZER ISSO DO LADO QUE VC QUER QUE VENHA OS OBJETOS ASSOCIADOS
+	 // FAZER ISSO DO LADO QUE VC QUER QUE VENHA OS OBJETOS ASSOCIADOS
 	@ManyToMany(mappedBy = "categorias") // ESSA ANOTAÇÃO SERVE PARA ASSOCIAR CLASSES NO BANCO DE DADOS, NO CASO MUITOS PARA MUITOS
 	private List<Produto> produtos = new ArrayList<>(); // SERVE PARA ASSOCIAR ESSA CLASSE A OUTRA CLASSE, NO CASO A CLASSE PRODUTO ESTA AGORA ASSOCIADA A CLASSE CATEGORIA 
 	

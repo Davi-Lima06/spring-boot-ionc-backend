@@ -16,8 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.davi.cursomc.domain.enums.TipoCliente;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -30,7 +29,7 @@ public class Cliente implements Serializable {
 	private String cpfOuCnpj;
 	private Integer tipo;
 	
-	@JsonManagedReference
+	
 	@OneToMany(mappedBy = "cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
@@ -38,7 +37,7 @@ public class Cliente implements Serializable {
 	@CollectionTable(name = "TELEFONE")
 	private Set<String> tefefones = new HashSet<>(); // O TIPO SE É UM CONJUNTO E CONJUNTO NÃO ACEITA REPETIÇAO
 	
-	@JsonBackReference
+	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 	
