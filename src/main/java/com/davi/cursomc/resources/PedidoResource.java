@@ -18,10 +18,10 @@ public class PedidoResource {
 	private PedidoService service;
 
 	@RequestMapping(value = "{id}",method = RequestMethod.GET )
-	public ResponseEntity<?> find(@PathVariable Integer id) { // O RESPONSEENTITY É UM TIPO ESPECIAL DO SPRING QUE ELE JÁ ARMAZENA VARIAS INFORMAÇÕES
+	public ResponseEntity<Pedido> find(@PathVariable Integer id) { // O RESPONSEENTITY É UM TIPO ESPECIAL DO SPRING QUE ELE JÁ ARMAZENA VARIAS INFORMAÇÕES
 															  // DE UMA RESPOSTA HTTP PARA UM SERVIÇO REST
 		
-		Pedido obj = service.buscar(id);
+		Pedido obj = service.find(id);
 		
 		return ResponseEntity.ok().body(obj) ;
 	}
