@@ -1,5 +1,6 @@
 package com.davi.cursomc.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,9 +48,10 @@ public class CategoriaService {  // ESSA CLASSE SERVE PARA OPERAÇÕES E CONSULT
 			throw new DataIntegrityException("Não é possível excluir uma categoria que possui produtos");
 		}
 		
-		
-		
-		
+	}
+	
+	public List<Categoria> findAll(){
+		return repo.findAll();
 	}
 
 }
