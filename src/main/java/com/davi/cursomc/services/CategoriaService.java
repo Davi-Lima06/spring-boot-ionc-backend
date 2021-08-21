@@ -71,6 +71,6 @@ public class CategoriaService {  // ESSA CLASSE SERVE PARA OPERAÇÕES E CONSULT
 	private void updateData(Categoria newObj,Categoria obj) {
 		newObj.setNome(obj.getNome());
 	
-	}
+	} 
 
 }
